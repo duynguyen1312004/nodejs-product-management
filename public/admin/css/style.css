@@ -1,0 +1,81 @@
+/* --- Cấu hình chung --- */
+* {
+  box-sizing: border-box; /* Giúp tính toán kích thước không bị vỡ khung */
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Font chữ hiện đại hơn */
+  font-size: 14px;
+  background-color: #f4f6f9; /* Màu nền xám nhẹ cho phần nội dung chính cho dịu mắt */
+}
+
+a {
+  text-decoration: none;
+}
+
+/* --- HEADER --- */
+.header {
+  background-color: #202020;
+  padding: 0 20px;
+  height: 60px; /* Cố định chiều cao header là 60px */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Tạo bóng đổ nhẹ ngăn cách header */
+}
+
+/* Style cho Logo nếu sau này bạn thêm vào */
+.header .inner-logo a {
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* --- BODY CONTAINER --- */
+.body {
+  display: flex; /* Dùng flex để chia cột Sider và Main chuẩn hơn */
+}
+
+/* --- SIDEBAR (SIDER) --- */
+.body .sider {
+  width: 250px; /* Tăng độ rộng lên 250px cho thoải mái (thầy để 150px hơi bé) */
+  background-color: #343a40; /* Màu xám đen chuẩn Bootstrap */
+  color: #c2c7d0;
+  height: calc(100vh - 60px); /* Full màn hình trừ đi 60px của Header */
+  position: fixed;
+  top: 60px; /* Cách top bằng đúng chiều cao header */
+  left: 0;
+  padding: 20px;
+  overflow-y: auto; /* Nếu menu dài quá thì hiện thanh cuộn */
+}
+
+/* Hiệu ứng khi rê chuột vào item trong sider (sau này dùng) */
+.body .sider ul li a {
+    color: #c2c7d0;
+    display: block;
+    padding: 10px;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.body .sider ul li a:hover {
+    background-color: #494e53;
+    color: #fff;
+    text-decoration: none;
+}
+
+/* --- MAIN CONTENT --- */
+.body .main {
+  /* Quan trọng: Phải cách trái bằng đúng độ rộng của Sider */
+  margin-left: 250px; 
+  width: calc(100% - 250px);
+  padding: 20px;
+  min-height: calc(100vh - 60px);
+}

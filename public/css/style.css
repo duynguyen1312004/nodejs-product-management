@@ -1,0 +1,220 @@
+/* --- 1. CẤU HÌNH CHUNG --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif; /* Font chữ hiện đại */
+  background-color: #f8f9fa; /* Màu nền xám nhẹ dịu mắt */
+  color: #333;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none; /* Bỏ gạch chân link */
+  color: inherit;
+}
+
+ul {
+  list-style: none; /* Bỏ dấu chấm tròn đầu dòng */
+}
+
+/* --- 2. HỆ THỐNG LƯỚI (Mô phỏng Bootstrap) --- */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -15px;
+  margin-right: -15px;
+}
+
+.align-items-center {
+  align-items: center; /* Căn giữa theo chiều dọc */
+}
+
+.col-3 {
+  width: 25%;
+  padding: 0 15px;
+}
+
+.col-9 {
+  width: 75%;
+  padding: 0 15px;
+}
+
+/* --- 3. HEADER STYLES --- */
+.header {
+  background-color: #ffffff;
+  padding: 15px 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Đổ bóng nhẹ sang trọng */
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Logo */
+.inner-logo img {
+  max-height: 40px; /* Chiều cao logo cố định */
+  display: block;
+}
+
+/* Menu */
+.inner-menu ul {
+  display: flex;
+  justify-content: flex-end; /* Đẩy menu sang phải */
+  gap: 30px; /* Khoảng cách giữa các mục menu */
+}
+
+.inner-menu ul li a {
+  font-size: 16px;
+  font-weight: 500;
+  color: #555;
+  position: relative;
+  transition: all 0.3s ease;
+  padding: 5px 0;
+}
+
+/* Hiệu ứng Hover vào menu */
+.inner-menu ul li a:hover {
+  color: #007bff; /* Đổi màu xanh khi di chuột */
+}
+
+/* Hiệu ứng gạch chân chạy ra khi hover (Siêu đẹp) */
+.inner-menu ul li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: #007bff;
+  transition: width 0.3s ease;
+}
+
+.inner-menu ul li a:hover::after {
+  width: 100%; /* Gạch chân chạy full khi hover */
+}
+
+/* --- BỔ SUNG HỆ THỐNG LƯỚI --- */
+.col-4 {
+  width: 33.33%; /* Chia 3 cột một hàng */
+  padding: 0 15px;
+}
+
+.col-12 {
+  width: 100%;
+  padding: 0 15px;
+}
+
+.mb-3 {
+  margin-bottom: 20px; /* Tạo khoảng cách dưới */
+}
+
+.my-3 {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+/* --- TITLE TRANG --- */
+.box-head {
+  margin-bottom: 30px;
+}
+
+.box-head .inner-title {
+  font-size: 28px;
+  font-weight: 600;
+  color: #333;
+  position: relative;
+  padding-left: 15px;
+  border-left: 5px solid #007bff; /* Gạch xanh trang trí đầu dòng */
+}
+
+/* --- PRODUCT CARD STYLES (Thẻ sản phẩm) --- */
+.product-item {
+  border: 1px solid #ddd;
+  border-radius: 8px; /* Bo tròn góc */
+  overflow: hidden; /* Để ảnh không bị lòi ra ngoài góc bo */
+  transition: all 0.3s ease;
+  background: #fff;
+  position: relative;
+}
+
+/* Hiệu ứng bay lên khi di chuột */
+.product-item:hover {
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+  transform: translateY(-5px);
+  border-color: #007bff;
+}
+
+/* Ảnh sản phẩm */
+.product-item .inner-image {
+  width: 100%;
+  aspect-ratio: 4/3; /* Tỷ lệ khung ảnh chuẩn */
+  overflow: hidden;
+  border-bottom: 1px solid #eee;
+}
+
+.product-item .inner-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ảnh tự căn chỉnh không bị méo */
+  transition: transform 0.5s ease;
+}
+
+.product-item:hover .inner-image img {
+  transform: scale(1.1); /* Zoom ảnh nhẹ khi hover */
+}
+
+/* Nội dung sản phẩm */
+.product-item .inner-content {
+  padding: 15px;
+}
+
+.product-item .inner-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  color: #333;
+  /* Cắt chữ nếu tên quá dài (2 dòng) */
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.product-item .inner-price-new {
+  font-size: 18px;
+  font-weight: 700;
+  color: #d32f2f; /* Màu đỏ cho giá mới */
+  margin-right: 10px;
+  display: inline-block;
+}
+
+.product-item .inner-price-old {
+  font-size: 14px;
+  color: #888;
+  text-decoration: line-through; /* Gạch ngang giá cũ */
+  display: inline-block;
+}
+
+/* Nhãn giảm giá */
+.product-item .inner-discount {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #d32f2f;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 4px;
+}
