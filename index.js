@@ -7,12 +7,15 @@ const database = require("./config/database");
 //*kết nối với database
 database.connect();
 
+const methodOverride = require('method-override');
+
 
 //*cấu hình express---------------------------------------------------
 const express = require('express')
 const app = express()
 const port = process.env.PORT;
 //*.......................................................................
+app.use(methodOverride('_method'));
 
 //*nhúng routerAdmin vào------------------------------------------------------
 const routeAdmin = require("./routers/admin/index.router"); 

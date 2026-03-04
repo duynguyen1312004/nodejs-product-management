@@ -59,3 +59,19 @@ module.exports.index = async (req, res) => {
         pagination: objectPagination
     });//?truy cập vào pug
 }
+
+
+
+//*[GET]/admin/products/change-status/:status/123
+
+module.exports.changeStatus = async (req, res) => {
+    const status = req.params.status;
+    const id = req.params.id;
+
+    await Product.updateOne({ _id: id },{ status: status });
+    
+    // res.redirect("/admin/products");
+    // res.redirect('back');
+    const redirectUrl = req.get("Referer") || "/admin/products";
+    res.redirect(redirectUrl);
+}
